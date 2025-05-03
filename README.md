@@ -1,61 +1,37 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Italiano:
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Nel mio controller ArticleController, ho implementato diverse funzioni per gestire le operazioni CRUD (Create, Read, Update, Delete) per gli articoli.
 
-## About Laravel
+index(): In questo metodo recupero tutti gli articoli dal database usando il modello Article e il metodo all(). Dopodiché, passo i dati alla vista article.index per visualizzarli.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+create(): In questo metodo restituisco la vista del form per creare un nuovo articolo, senza alcuna logica aggiuntiva, poiché il form è gestito direttamente dalla vista.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+store(): Qui gestisco la creazione di un nuovo articolo. Prima controllo se l'utente ha caricato un'immagine. Se l'immagine è presente, la salvo nella cartella public/img. In caso contrario, assegno un'immagine predefinita. Dopo di che, creo un nuovo articolo nel database con i dati forniti. Infine, ritorno alla stessa pagina con un messaggio di successo.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+show(): Questo metodo è progettato per visualizzare i dettagli di un articolo specifico, che viene passato alla vista article.show tramite il metodo compact.
 
-## Learning Laravel
+edit(): Qui recupero un articolo specifico utilizzando il suo id e lo passo alla vista di modifica per consentire all'utente di aggiornarlo.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+update(): In questo metodo, aggiorno un articolo esistente. Dopo aver convalidato i dati inviati dal form, aggiorno l'articolo nel database con i nuovi valori. Se l'aggiornamento ha successo, reindirizzo l'utente con un messaggio di successo.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+destroy(): Infine, nel metodo destroy(), elimino un articolo dal database e reindirizzo l'utente alla pagina di elenco articoli con un messaggio di conferma.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+English:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+In my ArticleController, I implemented several methods to handle the CRUD (Create, Read, Update, Delete) operations for articles.
 
-### Premium Partners
+index(): In this method, I retrieve all articles from the database using the Article model and the all() method. Then, I pass the data to the article.index view to display them.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development/)**
-- **[Active Logic](https://activelogic.com)**
+create(): In this method, I return the view for the form to create a new article. There is no additional logic here, as the form is handled directly in the view.
 
-## Contributing
+store(): Here, I handle the creation of a new article. First, I check if the user has uploaded an image. If the image is present, I save it to the public/img folder. If not, I assign a default image. Then, I create a new article in the database with the provided data. Finally, I return to the same page with a success message.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+show(): This method is designed to display the details of a specific article, which is passed to the article.show view using the compact method.
 
-## Code of Conduct
+edit(): Here, I retrieve a specific article using its id and pass it to the edit view, allowing the user to update it.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+update(): In this method, I update an existing article. After validating the data sent from the form, I update the article in the database with the new values. If the update is successful, I redirect the user with a success message.
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+destroy(): Finally, in the destroy() method, I delete an article from the database and redirect the user to the articles listing page with a confirmation message.
